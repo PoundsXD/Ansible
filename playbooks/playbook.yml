@@ -36,7 +36,7 @@
       when: not default_stat.stat.exists
     - name: Create new default file for nginx
       template:
-        src=/home/nosrac/codefellows/401/lab-assignments/django-imager/simple_nginx_config
+        src=/home/nosrac/codefellows/401/Ansible/templates/simple_nginx_config
         dest=/etc/nginx/sites-available/default
     - name: Restart the nginx service
       service:
@@ -46,7 +46,7 @@
       become_method: sudo
     - name: Copy upstart script into etc
       template:
-        src=/home/nosrac/codefellows/401/lab-assignments/django-imager/gunicorn.conf
+        src=/home/nosrac/codefellows/401/Ansible/templates/gunicorn.conf
         dest=/etc/init/
     - pip:
         virtualenv: /home/ubuntu/django_imager/ENV
